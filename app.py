@@ -82,6 +82,7 @@ with st.sidebar:
         "Go to section:",
         [
             "🏠 Overview",
+            "📦 About the Data",
             "1️⃣  Replication",
             "2️⃣  Factor Analysis (EFA)",
             "3️⃣  Model Comparison",
@@ -111,69 +112,186 @@ with st.sidebar:
 
 # ─── OVERVIEW ─────────────────────────────────────────────────────────────────
 if section == "🏠 Overview":
-    st.title("Psychopathy & Professional Success")
-    st.subheader("A Causal & Predictive Extension of Eisenbarth, Hart & Sedikides (2018)")
+    st.title("Do Psychopathic Traits Predict Professional Success?")
+    st.markdown("##### A replication and causal extension of Eisenbarth, Hart & Sedikides (2018) — *Journal of Economic Psychology*")
+    st.markdown("---")
 
     st.markdown("""
-    This project replicates and extends the peer-reviewed article *"Do psychopathic traits predict professional success?"*
-    using **classical psychometrics**, **machine learning**, and **causal inference** on the original dataset (N = 439).
+    A widely cited finding in organizational psychology claims that certain psychopathic traits —
+    particularly **Fearless Dominance** (boldness, social confidence) — correlate positively with
+    professional success. This project asks: **is that relationship real, or is it a statistical artefact?**
+
+    Using the original dataset published by the authors on the Open Science Framework (N = 439 working adults),
+    we replicate the paper's results with exact numerical precision, then apply three layers of methodological
+    scrutiny — psychometric validation, machine learning, and causal inference — to test whether the
+    observed correlation survives rigorous analysis.
     """)
-
-    st.markdown("---")
-
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-value">439</div>
-            <div class="metric-label">Participants</div>
-        </div>""", unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-value">5</div>
-            <div class="metric-label">Analysis Scripts</div>
-        </div>""", unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-value">14</div>
-            <div class="metric-label">Figures</div>
-        </div>""", unsafe_allow_html=True)
-    with col4:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-value">3</div>
-            <div class="metric-label">Causal Estimators</div>
-        </div>""", unsafe_allow_html=True)
-
-    st.markdown("---")
 
     st.markdown("""
     <div class="finding-box">
-    <b>Core Contribution:</b> This project demonstrates that <b>aggregation bias</b> and <b>selection on observables</b>
-    jointly explain the apparent positive relationship between Fearless Dominance and professional success.
-    The naive positive effect (+0.63) disappears after propensity score matching (−0.97) and turns negative
-    under doubly-robust estimation (−1.54), revealing that the correlation is driven by confounding
-    personality traits — not by the psychopathic trait itself.
+    <b>The answer:</b> It does not. The naive positive effect of Fearless Dominance on professional
+    satisfaction (+0.63) disappears after propensity score matching (−0.97) and turns negative under
+    doubly-robust estimation (−1.54, p = 0.011). The apparent advantage of "boldness" is entirely
+    explained by confounding with Extraversion and Emotional Stability — not by the psychopathic
+    component itself. This is a textbook case of <b>aggregation bias</b> combined with
+    <b>selection on observables</b>.
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### Narrative Arc")
+    st.markdown("### What this project demonstrates")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+        **Psychometric rigour**
+        - Cronbach's Alpha replication (exact match)
+        - Exploratory Factor Analysis (EFA) with oblimin rotation
+        - Bartlett's test (χ² = 4821.99, p < 0.001) and KMO = 0.807
+        - Aggregation bias: why `score = sum(items)` is wrong
+        """)
+        st.markdown("""
+        **Causal inference**
+        - Propensity Score Matching (1:1 NN)
+        - Inverse Probability Weighting (IPW)
+        - Doubly-robust ATT estimation
+        - Heterogeneous effects by gender and experience
+        """)
+    with col2:
+        st.markdown("""
+        **Machine learning**
+        - OLS vs. XGBoost with 5-fold × 20 repeated CV
+        - SHAP values for feature interpretation
+        - Bootstrap confidence intervals (n = 1000)
+        - Formal model comparison: aggregate vs. dimensions
+        """)
+        st.markdown("""
+        **Economic interpretation**
+        - Signaling vs. productivity framework
+        - Threats to identification (OVB, reverse causality)
+        - Robustness checks across control specifications
+        """)
+
+    st.markdown("---")
+    st.markdown("### How to navigate")
     cols = st.columns(6)
     steps = [
-        ("📊", "Replication", "Exact match with original paper"),
-        ("🔬", "EFA", "Validate construct structure"),
-        ("⚖️", "ML Models", "Aggregate vs. dimensions"),
-        ("🎯", "Causal", "PSM + IPW + ATT"),
-        ("👥", "Heterogeneity", "By gender & experience"),
-        ("💼", "Economics", "Signaling vs. productivity"),
+        ("1️⃣", "Replication", "Exact match with paper"),
+        ("2️⃣", "EFA", "Construct validation"),
+        ("3️⃣", "Models", "Aggregate vs. dimensions"),
+        ("4️⃣", "Causal", "PSM + IPW + ATT"),
+        ("5️⃣", "Heterogeneity", "By subgroup"),
+        ("6️⃣", "Economics", "Interpretation"),
     ]
     for col, (icon, title, desc) in zip(cols, steps):
         with col:
             st.markdown(f"**{icon} {title}**")
             st.caption(desc)
+
+    st.markdown("---")
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.markdown("""
+        <div class="metric-card">
+            <div class="metric-value">439</div>
+            <div class="metric-label">Working adults<br>(original OSF data)</div>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div class="metric-card">
+            <div class="metric-value">−1.54</div>
+            <div class="metric-label">Doubly-robust ATT<br>(p = 0.011)</div>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="metric-card">
+            <div class="metric-value">KMO 0.807</div>
+            <div class="metric-label">Sampling adequacy<br>(meritorious)</div>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        st.markdown("""
+        <div class="metric-card">
+            <div class="metric-value">5 scripts</div>
+            <div class="metric-label">Fully reproducible<br>Python pipeline</div>
+        </div>""", unsafe_allow_html=True)
+
+# ─── ABOUT THE DATA ───────────────────────────────────────────────────────────
+elif section == "📦 About the Data":
+    st.header("About the Data")
+    st.markdown("""
+    All data used in this project were published by the original authors on the
+    **Open Science Framework** as part of their commitment to open science.
+    No data were collected, simulated, or modified.
+    """)
+    st.markdown("[Access the original OSF repository ↗](https://osf.io/tgujv)")
+    st.markdown("---")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+        ### Sample
+        | | |
+        |---|---|
+        | **N** | 439 working adults |
+        | **Country** | UK |
+        | **Recruitment** | Online panel (Prolific Academic) |
+        | **Mean age** | 31.4 years (SD = 10.7) |
+        | **Gender** | 54% female |
+        | **Mean tenure** | 32 months |
+        """)
+    with col2:
+        st.markdown("""
+        ### Instruments
+        | Instrument | What it measures | Items |
+        |---|---|---|
+        | **PPI-R** | Psychopathic traits (3 dimensions) | 40 |
+        | **BFI** | Big Five personality | 44 |
+        | **Professional Satisfaction** | Career satisfaction composite | 4 |
+        | **Material Success** | Income/status composite | 3 |
+        """)
+
+    st.markdown("---")
+    st.markdown("### The three PPI-R dimensions")
+    st.markdown("""
+    The Psychopathic Personality Inventory-Revised (PPI-R) measures psychopathic traits
+    across three theoretically distinct dimensions — **not** a single unidimensional construct:
+    """)
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("""
+        <div class="finding-box">
+        <b>Fearless Dominance (FD)</b><br><br>
+        Social confidence, stress immunity, fearlessness.<br><br>
+        Correlates <b>positively</b> with professional satisfaction (r = +0.13**)
+        </div>
+        """, unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div class="finding-box">
+        <b>Self-Centered Impulsivity (SCI)</b><br><br>
+        Impulsivity, egocentricity, blame externalisation.<br><br>
+        Correlates <b>negatively</b> with professional satisfaction (r = −0.14**)
+        </div>
+        """, unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="finding-box">
+        <b>Coldheartedness (CO)</b><br><br>
+        Emotional detachment, lack of empathy.<br><br>
+        Near-zero correlation with professional outcomes (r ≈ 0.00)
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("""
+    ### Why this matters methodologically
+    FD and SCI have **opposite signs** on the outcome. When a researcher sums all items into a
+    single "psychopathy total" score, these opposing effects cancel each other out — producing
+    a spurious near-zero correlation (r = −0.03) and the false conclusion that psychopathy
+    has no relationship with success. This is **aggregation bias**, and it is the central
+    methodological problem this project diagnoses and quantifies.
+    """)
 
 # ─── SECTION 1: REPLICATION ───────────────────────────────────────────────────
 elif section == "1️⃣  Replication":
