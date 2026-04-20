@@ -264,7 +264,7 @@ elif section == "3️⃣  Model Comparison":
     """)
 
     try:
-        df_comp = pd.read_csv("formal_model_comparison.csv")
+        df_comp = pd.read_csv("output/formal_model_comparison.csv")
 
         for outcome_label in df_comp['Outcome'].unique():
             st.subheader(f"Outcome: {outcome_label}")
@@ -394,7 +394,7 @@ elif section == "5️⃣  Heterogeneous Effects":
     """)
 
     try:
-        hte = pd.read_csv("heterogeneous_treatment_effects.csv")
+        hte = pd.read_csv("output/heterogeneous_treatment_effects.csv")
         hte_display = hte[['Subgroup', 'Category', 'att', 'ci_lower', 'ci_upper', 'p_value', 'n_treated', 'n_control']].copy()
         hte_display.columns = ['Subgroup', 'Category', 'ATT', 'CI Lower', 'CI Upper', 'p-value', 'n treated', 'n control']
         hte_display = hte_display.round(3)
