@@ -1,0 +1,9 @@
+Outcome,Subsample,n,FD_coef,CV_R2
+Professional Satisfaction,Full sample,439,0.7176,-0.029
+Professional Satisfaction,No controls (FD+SCI+CO),439,0.7176,-0.029
+Professional Satisfaction,+ Big Five,439,0.6708,-0.0638
+Professional Satisfaction,+ Big Five + demographics,409,0.551,-0.0417
+Material Success,Full sample,438,0.6669,-0.0125
+Material Success,No controls (FD+SCI+CO),438,0.6669,-0.0125
+Material Success,+ Big Five,438,0.0817,0.0081
+Material Success,+ Big Five + demographics,408,0.0843,0.0632

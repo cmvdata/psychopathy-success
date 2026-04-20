@@ -1,0 +1,8 @@
+Subgroup,Category,att,ci_lower,ci_upper,p_value,n_treated,n_control
+Full Sample,Reference,-0.9659,-2.5577,0.5687,0.2119,88,88
+Male,Gender,2.0,-0.1436,4.515,0.1106,35,35
+Female,Gender,0.7632,-2.0,3.7908,0.6091,38,38
+High experience (>32 months),Experience,-0.7857,-3.5012,1.7625,0.5214,42,42
+Low experience (≤32 months),Experience,-1.65,-3.975,0.9506,0.172,40,40
+Older (>31 years),Age,-0.1143,-2.6014,2.145,0.9307,35,35
+Younger (≤31 years),Age,0.0943,-1.6608,2.0009,0.9275,53,53

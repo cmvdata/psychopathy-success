@@ -1,0 +1,5 @@
+Method,ATT,CI_lower,CI_upper,p_value
+Naive Difference,0.6337,,,0.3469
+PSM 1:1 NN,-0.9659,-2.5341,0.6591,0.2119
+IPW (H-T),-3.6889,,,
+Doubly-Robust WLS,-1.5431,-2.7273,-0.3588,0.0111
