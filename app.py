@@ -62,13 +62,15 @@ st.markdown("""
 
     /* Warning box */
     .warning-box {
-        background: #fff3cd;
+        background: #2d2d00;
         border: 1px solid #ffc107;
         border-radius: 8px;
         padding: 14px 18px;
         margin: 12px 0;
         font-size: 0.93em;
+        color: #ffe066 !important;
     }
+    .warning-box b { color: #ffe066 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -279,9 +281,9 @@ elif section == "3️⃣  Model Comparison":
             def highlight_best(row):
                 styles = [''] * len(row)
                 if row.name == best_r2:
-                    styles[1] = 'background-color: #d4edda; font-weight: bold'
+                    styles[1] = 'background-color: #1a5c2e; color: #ffffff; font-weight: bold'
                 if row.name == best_rmse:
-                    styles[2] = 'background-color: #d4edda; font-weight: bold'
+                    styles[2] = 'background-color: #1a5c2e; color: #ffffff; font-weight: bold'
                 return styles
 
             st.dataframe(
@@ -403,17 +405,22 @@ elif section == "5️⃣  Heterogeneous Effects":
             if pd.isna(val):
                 return ''
             if val < 0.05:
-                return 'background-color: #d4edda; font-weight: bold'
+                return 'background-color: #1a5c2e; color: #ffffff; font-weight: bold'
             return ''
 
+        try:
+            styled = hte_display.style.map(color_pvalue, subset=['p-value'])
+        except AttributeError:
+            styled = hte_display.style.applymap(color_pvalue, subset=['p-value'])
+
         st.dataframe(
-            hte_display.style.applymap(color_pvalue, subset=['p-value']),
+            styled,
             use_container_width=True,
             hide_index=True,
         )
         st.caption("Green = statistically significant at p < 0.05. No subgroup shows a significant effect.")
-    except Exception:
-        st.warning("Heterogeneity CSV not found. Run 05_heterogeneity.py first.")
+    except Exception as e:
+        st.warning(f"Heterogeneity CSV not found or error: {e}")
 
     st.markdown("---")
     st.image("figures/fig14_heterogeneous_effects.png", use_container_width=True)
