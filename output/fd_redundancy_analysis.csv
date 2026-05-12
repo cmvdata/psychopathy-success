@@ -1,0 +1,20 @@
+metric,variable,value,interpretation
+Pearson_r,Extraversion,0.4845,"moderate (***, p=1.83e-25)"
+Pearson_r,Agreeableness,0.0579,"negligible (n.s., p=2.43e-01)"
+Pearson_r,Conscientiousness,0.1735,"weak (***, p=4.25e-04)"
+Pearson_r,Emotional Stability,0.6587,"strong (***, p=3.05e-52)"
+Pearson_r,Openness,0.393,"moderate (***, p=1.49e-16)"
+OLS_full_R2,all_predictors,0.6157,61.6% of FD variance explained linearly
+OLS_full_R2_adj,all_predictors,0.608,adjusted R²
+OLS_full_F,all_predictors,80.1052,F-stat (p = 2.79e-78)
+OLS_full_std_beta,Extraversion,0.3035,p = 3.70e-17 (***)
+OLS_full_std_beta,Agreeableness,-0.0083,p = 8.00e-01 (n.s.)
+OLS_full_std_beta,Conscientiousness,0.0457,p = 1.68e-01 (n.s.)
+OLS_full_std_beta,Emotional Stability,0.5125,p = 8.66e-37 (***)
+OLS_full_std_beta,Openness,0.1957,p = 1.60e-08 (***)
+OLS_reduced_R2,BF_Ex+BF_Em,0.539,87.5% of full-model R² captured by 2 predictors
+VIF,Extraversion,1.2367,minimal (<2.5)
+VIF,Agreeableness,1.1279,minimal (<2.5)
+VIF,Conscientiousness,1.1425,minimal (<2.5)
+VIF,Emotional Stability,1.3854,minimal (<2.5)
+VIF,Openness,1.2002,minimal (<2.5)

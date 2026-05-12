@@ -1,0 +1,18 @@
+metric,variable,value_bits,interpretation
+MI_univariate,Emotional Stability,0.4739,"sklearn mutual_info_regression (KSG, k=3)"
+MI_univariate,Extraversion,0.1734,"sklearn mutual_info_regression (KSG, k=3)"
+MI_univariate,Openness,0.1523,"sklearn mutual_info_regression (KSG, k=3)"
+MI_univariate,Conscientiousness,0.0596,"sklearn mutual_info_regression (KSG, k=3)"
+MI_univariate,Agreeableness,0.0,"sklearn mutual_info_regression (KSG, k=3)"
+MI_joint_full,BF_full(5_vars),0.9262,ceiling: total info BF carries about FD
+MI_sum_univariate,BF_full(5_vars),0.8592,sum of univariate MIs (>= joint due to BF overlap)
+MI_incremental,Extraversion,0.0,unique info given the other 4 BFs
+MI_incremental,Agreeableness,0.0,unique info given the other 4 BFs
+MI_incremental,Conscientiousness,0.0,unique info given the other 4 BFs
+MI_incremental,Emotional Stability,0.2725,unique info given the other 4 BFs
+MI_incremental,Openness,0.0,unique info given the other 4 BFs
+H_FD_disc,10_quantile_bins,3.3009,entropy of discretized FD
+H_FD_given_BF_approx,BF_full(5_vars),2.3747,H(FD_disc) - I(FD_cont ; BF_full); not a clean ratio numerator
+H_diff_FD,standardized_FD,2.0471,"differential entropy 0.5*log2(2*pi*e) for N(0,1) Gaussian"
+Redundancy_ratio_corrected,BF_full(5_vars),0.5476,"1 - I(FD;BF)/H_diff(FD); 45% of FD information shared with Big Five, the rest 55% idiosyncratic/noise"
+MI_vs_beta_rank_agreement,all_BF,5.0,5/5 positions match between MI and |β| rankings

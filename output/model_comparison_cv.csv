@@ -1,0 +1,9 @@
+Outcome,Model,CV_R2_mean,CV_R2_std
+Professional Satisfaction,A: PPI Total only,-0.01552278464102692,0.00849888945167078
+Professional Satisfaction,B: FD + SCI + CO,0.004873775647878031,0.04699296627912119
+Professional Satisfaction,C: Dimensions + Big Five,-0.037245392293452806,0.09279458547915234
+Professional Satisfaction,D: Full model (+ controls),-0.04167047442461282,0.0916626294717471
+Material Success,A: PPI Total only,-0.007941156723781151,0.02146705969760892
+Material Success,B: FD + SCI + CO,-0.002865761208583173,0.027214947866878024
+Material Success,C: Dimensions + Big Five,0.020359507914203222,0.0635190981591657
+Material Success,D: Full model (+ controls),0.06324752349017415,0.04665874612865332

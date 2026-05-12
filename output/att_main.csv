@@ -1,0 +1,4 @@
+Estimator,Threshold,ATT,CI_lower,CI_upper,p_value,n_used
+Caliper PSM,50,1.0123,-0.5633,2.6738,0.2512,81
+IPW,50,2.5904,-0.2323,5.178,0.0683,399
+AIPW (Doubly Robust),50,2.0924,-0.9656,5.0487,0.1466,399

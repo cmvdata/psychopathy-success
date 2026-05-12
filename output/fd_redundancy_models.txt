@@ -1,0 +1,86 @@
+======================================================================
+BLOCK 1.1 — Pearson correlations FD vs Big Five
+======================================================================
+  FD ↔ Extraversion              r = +0.485  p = 1.829e-25  (***)
+  FD ↔ Agreeableness             r = +0.058  p = 2.425e-01  (n.s.)
+  FD ↔ Conscientiousness         r = +0.173  p = 4.251e-04  (***)
+  FD ↔ Emotional Stability       r = +0.659  p = 3.049e-52  (***)
+  FD ↔ Openness                  r = +0.393  p = 1.490e-16  (***)
+
+======================================================================
+BLOCK 1.2 — OLS full
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   FD_z   R-squared:                       0.616
+Model:                            OLS   Adj. R-squared:                  0.608
+Method:                 Least Squares   F-statistic:                     80.11
+Date:                Tue, 05 May 2026   Prob (F-statistic):           2.79e-78
+Time:                        19:39:57   Log-Likelihood:                -384.28
+No. Observations:                 409   AIC:                             786.6
+Df Residuals:                     400   BIC:                             822.7
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const          -0.0909      0.042     -2.182      0.030      -0.173      -0.009
+BF_Ex           0.3035      0.034      8.816      0.000       0.236       0.371
+BF_Ag          -0.0083      0.033     -0.254      0.800      -0.073       0.056
+BF_Co           0.0457      0.033      1.382      0.168      -0.019       0.111
+BF_Em           0.5125      0.036     14.065      0.000       0.441       0.584
+BF_Op           0.1957      0.034      5.769      0.000       0.129       0.262
+Age            -0.1742      0.038     -4.620      0.000      -0.248      -0.100
+Gender_male     0.2254      0.069      3.261      0.001       0.090       0.361
+MonthsInJob     0.0197      0.038      0.524      0.600      -0.054       0.094
+==============================================================================
+Omnibus:                        3.257   Durbin-Watson:                   1.924
+Prob(Omnibus):                  0.196   Jarque-Bera (JB):                3.449
+Skew:                           0.090   Prob(JB):                        0.178
+Kurtosis:                       3.412   Cond. No.                         3.36
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+======================================================================
+BLOCK 1.3 — OLS reduced: FD ~ BF_Ex + BF_Em
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   FD_z   R-squared:                       0.539
+Model:                            OLS   Adj. R-squared:                  0.537
+Method:                 Least Squares   F-statistic:                     237.3
+Date:                Tue, 05 May 2026   Prob (F-statistic):           5.49e-69
+Time:                        19:39:57   Log-Likelihood:                -421.51
+No. Observations:                 409   AIC:                             849.0
+Df Residuals:                     406   BIC:                             861.1
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const       4.647e-16      0.034   1.38e-14      1.000      -0.066       0.066
+BF_Ex          0.3352      0.035      9.617      0.000       0.267       0.404
+BF_Em          0.5706      0.035     16.367      0.000       0.502       0.639
+==============================================================================
+Omnibus:                        1.871   Durbin-Watson:                   1.815
+Prob(Omnibus):                  0.392   Jarque-Bera (JB):                1.775
+Skew:                           0.161   Prob(JB):                        0.412
+Kurtosis:                       3.017   Cond. No.                         1.31
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+======================================================================
+BLOCK 1.4 — VIF in full model
+======================================================================
+  Extraversion              VIF = 1.24  (minimal (<2.5))
+  Agreeableness             VIF = 1.13  (minimal (<2.5))
+  Conscientiousness         VIF = 1.14  (minimal (<2.5))
+  Emotional Stability       VIF = 1.39  (minimal (<2.5))
+  Openness                  VIF = 1.20  (minimal (<2.5))
+  Age                       VIF = 1.48  (minimal (<2.5))
+  Gender_male               VIF = 1.20  (minimal (<2.5))
+  MonthsInJob               VIF = 1.48  (minimal (<2.5))

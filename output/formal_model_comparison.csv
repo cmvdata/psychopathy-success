@@ -1,0 +1,17 @@
+Outcome,Model,CV_R2,CV_R2_std,CV_RMSE,CV_RMSE_std,CV_MAE,CV_MAE_std
+Professional Satisfaction,OLS — PPI Total only,-0.0183,0.0215,5.7713,0.3332,4.6752,0.3083
+Professional Satisfaction,OLS — FD + SCI + CO,0.0045,0.05,5.7031,0.3254,4.6612,0.3033
+Professional Satisfaction,OLS — Dimensions + Big Five,-0.0109,0.0589,5.7454,0.3197,4.6943,0.2932
+Professional Satisfaction,OLS — Full model,-0.0261,0.0645,5.7718,0.3967,4.7459,0.3604
+Professional Satisfaction,XGB — PPI Total only,-0.0859,0.0759,5.9543,0.3603,4.8076,0.3521
+Professional Satisfaction,XGB — FD + SCI + CO,-0.0681,0.0773,5.9021,0.3147,4.7983,0.3046
+Professional Satisfaction,XGB — Dimensions + Big Five,-0.0749,0.0948,5.9167,0.3032,4.8221,0.2841
+Professional Satisfaction,XGB — Full model,-0.1037,0.0852,5.9834,0.4148,4.8774,0.3645
+Material Success,OLS — PPI Total only,-0.0156,0.0349,4.296,0.3623,3.4027,0.2202
+Material Success,OLS — FD + SCI + CO,-0.0114,0.0448,4.2858,0.356,3.3899,0.2216
+Material Success,OLS — Dimensions + Big Five,-0.0008,0.0532,4.2626,0.3565,3.3496,0.2309
+Material Success,OLS — Full model,0.0317,0.0749,4.0669,0.3728,3.1875,0.2211
+Material Success,XGB — PPI Total only,-0.1742,0.1186,4.6102,0.3936,3.5988,0.2332
+Material Success,XGB — FD + SCI + CO,-0.1914,0.115,4.6427,0.3731,3.6358,0.246
+Material Success,XGB — Dimensions + Big Five,-0.1476,0.0995,4.5579,0.3607,3.5424,0.2466
+Material Success,XGB — Full model,-0.1199,0.172,4.3582,0.3832,3.3632,0.2559

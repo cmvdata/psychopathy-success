@@ -1,0 +1,7 @@
+Description,r,p,sig
+Convergent: FD ↔ Extraversion (expected: positive),0.4849049876578028,2.8587538641656274e-27,***
+Convergent: FD ↔ Emotional Stability (expected: positive),0.655345098390143,3.2309357813927923e-55,***
+Discriminant: SCI ↔ Conscientiousness (expected: negative),-0.3845466083871249,6.39480220586972e-17,***
+Discriminant: SCI ↔ Agreeableness (expected: negative),-0.30894055717057295,3.662493372083929e-11,***
+Discriminant: CO ↔ Agreeableness (expected: negative),-0.41292495590263545,1.6652187386860073e-19,***
+Discriminant: PPI Total ↔ Openness (expected: near zero),0.316233156287352,1.1873618702871012e-11,***
