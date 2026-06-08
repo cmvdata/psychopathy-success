@@ -15,5 +15,5 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Datos con PII de participantes (descargar desde OSF)
+# Participant data with PII (download from OSF)
 data/PsychopathySuccess_dfFinal.txt
